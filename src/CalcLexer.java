@@ -75,6 +75,9 @@ public class CalcLexer extends Lexer {
 	}
 
 
+	    Stack<BigDecimal> stack = new Stack<>();
+
+
 	public CalcLexer(CharStream input) {
 		super(input);
 		_interp = new LexerATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);

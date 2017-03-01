@@ -7,7 +7,7 @@ class FormulaGenerator {
         BufferedWriter bw;
         try {
             bw = new BufferedWriter(new FileWriter(path));
-            for (int i = 0; i < 1000000; i++)
+            for (int i = 0; i < 1; i++)
                 bw.write(genFormula());
             bw.close();
         } catch (IOException e) {

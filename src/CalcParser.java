@@ -84,12 +84,14 @@ public class CalcParser extends Parser {
 	@Override
 	public ATN getATN() { return _ATN; }
 
+
+	    Stack<BigDecimal> stack = new Stack<>();
+
 	public CalcParser(TokenStream input) {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 	public static class StrContext extends ParserRuleContext {
-		public Stack<BigDecimal> stack = new Stack<>();
 		public Token sign;
 		public List<MultContext> mult() {
 			return getRuleContexts(MultContext.class);
@@ -141,14 +143,14 @@ public class CalcParser extends Parser {
 				setState(14);
 				mult();
 
-				            BigDecimal first = ((StrContext)getInvokingContext(0)).stack.pop();
-				            BigDecimal second = ((StrContext)getInvokingContext(0)).stack.pop();
+				                 BigDecimal first = stack.pop();
+				                 BigDecimal second = stack.pop();
 
-				            if ((((StrContext)_localctx).sign!=null?((StrContext)_localctx).sign.getText():null).toString().equals("+"))
-				                ((StrContext)getInvokingContext(0)).stack.push(second.add(first));
-				            else
-				                ((StrContext)getInvokingContext(0)).stack.push(second.subtract(first));
-				        
+				                 if ((((StrContext)_localctx).sign!=null?((StrContext)_localctx).sign.getText():null).toString().equals("+"))
+				                     stack.push(second.add(first));
+				                 else
+				                     stack.push(second.subtract(first));
+				             
 				}
 				}
 				setState(21);
@@ -166,8 +168,8 @@ public class CalcParser extends Parser {
 			}
 
 
-			            //System.out.println(" = " + ((StrContext)getInvokingContext(0)).stack.pop());
-			        
+			                 System.out.println(" = " + stack.pop());
+			             
 			}
 		}
 		catch (RecognitionException re) {
@@ -189,7 +191,6 @@ public class CalcParser extends Parser {
 		public MultContext mult(int i) {
 			return getRuleContext(MultContext.class,i);
 		}
-		public TerminalNode NEWLINE() { return getToken(CalcParser.NEWLINE, 0); }
 		public List<TerminalNode> PLUS() { return getTokens(CalcParser.PLUS); }
 		public TerminalNode PLUS(int i) {
 			return getToken(CalcParser.PLUS, i);
@@ -233,13 +234,13 @@ public class CalcParser extends Parser {
 				setState(29);
 				mult();
 
-				            BigDecimal first = ((StrContext)getInvokingContext(0)).stack.pop();
-				            BigDecimal second = ((StrContext)getInvokingContext(0)).stack.pop();
+				            BigDecimal first = stack.pop();
+				            BigDecimal second = stack.pop();
 
 				            if ((((ParensContext)_localctx).sign!=null?((ParensContext)_localctx).sign.getText():null).toString().equals("+"))
-				                ((StrContext)getInvokingContext(0)).stack.push(second.add(first));
+				                stack.push(second.add(first));
 				            else
-				                ((StrContext)getInvokingContext(0)).stack.push(second.subtract(first));
+				                stack.push(second.subtract(first));
 				        
 				}
 				}
@@ -247,16 +248,6 @@ public class CalcParser extends Parser {
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(38);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			if (_la==NEWLINE) {
-				{
-				setState(37);
-				match(NEWLINE);
-				}
-			}
-
 			}
 		}
 		catch (RecognitionException re) {
@@ -303,15 +294,15 @@ public class CalcParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(40);
+			setState(37);
 			pow();
-			setState(47);
+			setState(44);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << MULTIPLE) | (1L << DIVISION) | (1L << MOD))) != 0)) {
 				{
 				{
-				setState(41);
+				setState(38);
 				((MultContext)_localctx).sign = _input.LT(1);
 				_la = _input.LA(1);
 				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << MULTIPLE) | (1L << DIVISION) | (1L << MOD))) != 0)) ) {
@@ -322,22 +313,22 @@ public class CalcParser extends Parser {
 					_errHandler.reportMatch(this);
 					consume();
 				}
-				setState(42);
+				setState(39);
 				pow();
 
-				            BigDecimal first = ((StrContext)getInvokingContext(0)).stack.pop();
-				            BigDecimal second = ((StrContext)getInvokingContext(0)).stack.pop();
+				            BigDecimal first = stack.pop();
+				            BigDecimal second = stack.pop();
 
 				            if ((((MultContext)_localctx).sign!=null?((MultContext)_localctx).sign.getText():null).toString().equals("*"))
-				                ((StrContext)getInvokingContext(0)).stack.push(second.multiply(first));
+				                stack.push(second.multiply(first));
 				            else if ((((MultContext)_localctx).sign!=null?((MultContext)_localctx).sign.getText():null).toString().equals("/"))
-				                ((StrContext)getInvokingContext(0)).stack.push(second.divide(first, 20, RoundingMode.HALF_UP));
+				                stack.push(second.divide(first, 1, RoundingMode.CEILING));
 				            else
-				                ((StrContext)getInvokingContext(0)).stack.push(MyBigDecimalMath.mod(second, first));
+				                stack.push(MyBigDecimalMath.mod(second, first));
 				        
 				}
 				}
-				setState(49);
+				setState(46);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -378,28 +369,27 @@ public class CalcParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(50);
+			setState(47);
 			atom();
-			setState(57);
+			setState(54);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==POW) {
 				{
 				{
-				setState(51);
+				setState(48);
 				match(POW);
-				setState(52);
+				setState(49);
 				atom();
 
-				            BigDecimal first = ((StrContext)getInvokingContext(0)).stack.pop();
-				            BigDecimal second = ((StrContext)getInvokingContext(0)).stack.pop();
+				            BigDecimal first = stack.pop();
+				            BigDecimal second = stack.pop();
 
-					        //((StrContext)getInvokingContext(0)).stack.push(BigDecimalMath.powRound(second, first.toBigInteger()).setScale(5));
-					        ((StrContext)getInvokingContext(0)).stack.push(second.pow(first.intValue()));
+					        stack.push(second.pow(first.intValue()));
 					    
 				}
 				}
-				setState(59);
+				setState(56);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -441,64 +431,65 @@ public class CalcParser extends Parser {
 		enterRule(_localctx, 8, RULE_atom);
 		int _la;
 		try {
-			setState(76);
+			setState(73);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,9,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,8,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(61);
+				setState(58);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==MINUS) {
 					{
-					setState(60);
+					setState(57);
 					((AtomContext)_localctx).MINUS = match(MINUS);
 					}
 				}
 
-				setState(63);
+				setState(60);
 				((AtomContext)_localctx).NUMBER = match(NUMBER);
 
 					        BigDecimal value = new BigDecimal((((AtomContext)_localctx).NUMBER!=null?((AtomContext)_localctx).NUMBER.getText():null).toString());
 					        if ((((AtomContext)_localctx).MINUS!=null?((AtomContext)_localctx).MINUS.getText():null) != null)
 					            value = value.negate();
-				            ((StrContext)getInvokingContext(0)).stack.push(value);
+				            stack.push(value);
+				            //System.out.println(value);
 					    
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(66);
+				setState(63);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==MINUS) {
 					{
-					setState(65);
+					setState(62);
 					match(MINUS);
 					}
 				}
 
-				setState(69);
+				setState(66);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==SQRT) {
 					{
-					setState(68);
+					setState(65);
 					((AtomContext)_localctx).funcname = funcname();
 					}
 				}
 
-				setState(71);
+				setState(68);
 				match(LPAREN);
-				setState(72);
+				setState(69);
 				parens();
-				setState(73);
+				setState(70);
 				match(RPAREN);
 
 				            if ((((AtomContext)_localctx).funcname!=null?_input.getText(((AtomContext)_localctx).funcname.start,((AtomContext)_localctx).funcname.stop):null) != null)
-				                ((StrContext)getInvokingContext(0)).stack.push(BigDecimalMath.sqrt(((StrContext)getInvokingContext(0)).stack.pop()));
+				                stack.push(BigDecimalMath.sqrt(stack.pop()));
 					    
 				}
 				break;
@@ -529,7 +520,7 @@ public class CalcParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(78);
+			setState(75);
 			match(SQRT);
 			}
 		}
@@ -545,27 +536,26 @@ public class CalcParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\20S\4\2\t\2\4\3\t"+
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\20P\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\3\2\3\2\3\2\3\2\3\2\7\2\24\n\2\f\2"+
 		"\16\2\27\13\2\3\2\5\2\32\n\2\3\2\3\2\3\3\3\3\3\3\3\3\3\3\7\3#\n\3\f\3"+
-		"\16\3&\13\3\3\3\5\3)\n\3\3\4\3\4\3\4\3\4\3\4\7\4\60\n\4\f\4\16\4\63\13"+
-		"\4\3\5\3\5\3\5\3\5\3\5\7\5:\n\5\f\5\16\5=\13\5\3\6\5\6@\n\6\3\6\3\6\3"+
-		"\6\5\6E\n\6\3\6\5\6H\n\6\3\6\3\6\3\6\3\6\3\6\5\6O\n\6\3\7\3\7\3\7\2\2"+
-		"\b\2\4\6\b\n\f\2\4\3\2\6\7\3\2\b\nV\2\16\3\2\2\2\4\35\3\2\2\2\6*\3\2\2"+
-		"\2\b\64\3\2\2\2\nN\3\2\2\2\fP\3\2\2\2\16\25\5\6\4\2\17\20\t\2\2\2\20\21"+
-		"\5\6\4\2\21\22\b\2\1\2\22\24\3\2\2\2\23\17\3\2\2\2\24\27\3\2\2\2\25\23"+
-		"\3\2\2\2\25\26\3\2\2\2\26\31\3\2\2\2\27\25\3\2\2\2\30\32\7\5\2\2\31\30"+
-		"\3\2\2\2\31\32\3\2\2\2\32\33\3\2\2\2\33\34\b\2\1\2\34\3\3\2\2\2\35$\5"+
-		"\6\4\2\36\37\t\2\2\2\37 \5\6\4\2 !\b\3\1\2!#\3\2\2\2\"\36\3\2\2\2#&\3"+
-		"\2\2\2$\"\3\2\2\2$%\3\2\2\2%(\3\2\2\2&$\3\2\2\2\')\7\5\2\2(\'\3\2\2\2"+
-		"()\3\2\2\2)\5\3\2\2\2*\61\5\b\5\2+,\t\3\2\2,-\5\b\5\2-.\b\4\1\2.\60\3"+
-		"\2\2\2/+\3\2\2\2\60\63\3\2\2\2\61/\3\2\2\2\61\62\3\2\2\2\62\7\3\2\2\2"+
-		"\63\61\3\2\2\2\64;\5\n\6\2\65\66\7\13\2\2\66\67\5\n\6\2\678\b\5\1\28:"+
-		"\3\2\2\29\65\3\2\2\2:=\3\2\2\2;9\3\2\2\2;<\3\2\2\2<\t\3\2\2\2=;\3\2\2"+
-		"\2>@\7\7\2\2?>\3\2\2\2?@\3\2\2\2@A\3\2\2\2AB\7\3\2\2BO\b\6\1\2CE\7\7\2"+
-		"\2DC\3\2\2\2DE\3\2\2\2EG\3\2\2\2FH\5\f\7\2GF\3\2\2\2GH\3\2\2\2HI\3\2\2"+
-		"\2IJ\7\r\2\2JK\5\4\3\2KL\7\16\2\2LM\b\6\1\2MO\3\2\2\2N?\3\2\2\2ND\3\2"+
-		"\2\2O\13\3\2\2\2PQ\7\20\2\2Q\r\3\2\2\2\f\25\31$(\61;?DGN";
+		"\16\3&\13\3\3\4\3\4\3\4\3\4\3\4\7\4-\n\4\f\4\16\4\60\13\4\3\5\3\5\3\5"+
+		"\3\5\3\5\7\5\67\n\5\f\5\16\5:\13\5\3\6\5\6=\n\6\3\6\3\6\3\6\5\6B\n\6\3"+
+		"\6\5\6E\n\6\3\6\3\6\3\6\3\6\3\6\5\6L\n\6\3\7\3\7\3\7\2\2\b\2\4\6\b\n\f"+
+		"\2\4\3\2\6\7\3\2\b\nR\2\16\3\2\2\2\4\35\3\2\2\2\6\'\3\2\2\2\b\61\3\2\2"+
+		"\2\nK\3\2\2\2\fM\3\2\2\2\16\25\5\6\4\2\17\20\t\2\2\2\20\21\5\6\4\2\21"+
+		"\22\b\2\1\2\22\24\3\2\2\2\23\17\3\2\2\2\24\27\3\2\2\2\25\23\3\2\2\2\25"+
+		"\26\3\2\2\2\26\31\3\2\2\2\27\25\3\2\2\2\30\32\7\5\2\2\31\30\3\2\2\2\31"+
+		"\32\3\2\2\2\32\33\3\2\2\2\33\34\b\2\1\2\34\3\3\2\2\2\35$\5\6\4\2\36\37"+
+		"\t\2\2\2\37 \5\6\4\2 !\b\3\1\2!#\3\2\2\2\"\36\3\2\2\2#&\3\2\2\2$\"\3\2"+
+		"\2\2$%\3\2\2\2%\5\3\2\2\2&$\3\2\2\2\'.\5\b\5\2()\t\3\2\2)*\5\b\5\2*+\b"+
+		"\4\1\2+-\3\2\2\2,(\3\2\2\2-\60\3\2\2\2.,\3\2\2\2./\3\2\2\2/\7\3\2\2\2"+
+		"\60.\3\2\2\2\618\5\n\6\2\62\63\7\13\2\2\63\64\5\n\6\2\64\65\b\5\1\2\65"+
+		"\67\3\2\2\2\66\62\3\2\2\2\67:\3\2\2\28\66\3\2\2\289\3\2\2\29\t\3\2\2\2"+
+		":8\3\2\2\2;=\7\7\2\2<;\3\2\2\2<=\3\2\2\2=>\3\2\2\2>?\7\3\2\2?L\b\6\1\2"+
+		"@B\7\7\2\2A@\3\2\2\2AB\3\2\2\2BD\3\2\2\2CE\5\f\7\2DC\3\2\2\2DE\3\2\2\2"+
+		"EF\3\2\2\2FG\7\r\2\2GH\5\4\3\2HI\7\16\2\2IJ\b\6\1\2JL\3\2\2\2K<\3\2\2"+
+		"\2KA\3\2\2\2L\13\3\2\2\2MN\7\20\2\2N\r\3\2\2\2\13\25\31$.8<ADK";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

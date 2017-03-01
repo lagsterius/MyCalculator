@@ -13,6 +13,8 @@ class MyParser {
     private BufferedReader reader;
     private String str = "";
 
+
+
     MyParser(BufferedReader reader) {
         this.reader = reader;
     }
@@ -21,7 +23,7 @@ class MyParser {
         try {
             while (reader.ready()) {
                 str = reader.readLine();
-                //System.out.println(str);
+                System.out.print(str);
                 newParse(str);
             }
         } catch (IOException e) {

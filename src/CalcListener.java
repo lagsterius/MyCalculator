@@ -1,4 +1,10 @@
 // Generated from Calc.g4 by ANTLR 4.6
+
+    import java.util.Stack;
+    import org.nevec.rjm.*;
+    import java.math.BigDecimal;
+    import java.math.RoundingMode;
+
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**

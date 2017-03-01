@@ -1,5 +1,9 @@
 grammar Calc;
 
+@members {
+    Stack<BigDecimal> stack = new Stack<>();
+}
+
 options
 {
 	language = Java;
@@ -14,61 +18,56 @@ options
 }
 
 str
-    locals
-    [
-        Stack<BigDecimal> stack = new Stack<>()
-    ]
-	: mult (sign=(PLUS|MINUS) mult
-	    {
-            BigDecimal first = $str::stack.pop();
-            BigDecimal second = $str::stack.pop();
+     	: mult (sign=(PLUS|MINUS) mult
+     	    {
+                 BigDecimal first = stack.pop();
+                 BigDecimal second = stack.pop();
 
-            if ($sign.text.toString().equals("+"))
-                $str::stack.push(second.add(first));
-            else
-                $str::stack.push(second.subtract(first));
-        })* NEWLINE?
-        {
-            //System.out.println(" = " + $str::stack.pop());
-        }
-	;
+                 if ($sign.text.toString().equals("+"))
+                     stack.push(second.add(first));
+                 else
+                     stack.push(second.subtract(first));
+             })* NEWLINE?
+             {
+                 System.out.println(" = " + stack.pop());
+             }
+     	;
 
 parens
-	: mult (sign=(PLUS|MINUS) mult
-	    {
-            BigDecimal first = $str::stack.pop();
-            BigDecimal second = $str::stack.pop();
+    : mult (sign=(PLUS|MINUS) mult
+        {
+            BigDecimal first = stack.pop();
+            BigDecimal second = stack.pop();
 
             if ($sign.text.toString().equals("+"))
-                $str::stack.push(second.add(first));
+                stack.push(second.add(first));
             else
-                $str::stack.push(second.subtract(first));
-        })* NEWLINE?
-	;
+                stack.push(second.subtract(first));
+        })*
+    ;
 
 mult
 	: pow (sign=(MULTIPLE|DIVISION|MOD) pow
 	    {
-            BigDecimal first = $str::stack.pop();
-            BigDecimal second = $str::stack.pop();
+            BigDecimal first = stack.pop();
+            BigDecimal second = stack.pop();
 
             if ($sign.text.toString().equals("*"))
-                $str::stack.push(second.multiply(first));
+                stack.push(second.multiply(first));
             else if ($sign.text.toString().equals("/"))
-                $str::stack.push(second.divide(first, 20, RoundingMode.HALF_UP));
+                stack.push(second.divide(first, 1, RoundingMode.CEILING));
             else
-                $str::stack.push(MyBigDecimalMath.mod(second, first));
+                stack.push(MyBigDecimalMath.mod(second, first));
         })*
 	;
 
 pow
 	: atom (POW atom
 	    {
-            BigDecimal first = $str::stack.pop();
-            BigDecimal second = $str::stack.pop();
+            BigDecimal first = stack.pop();
+            BigDecimal second = stack.pop();
 
-	        //$str::stack.push(BigDecimalMath.powRound(second, first.toBigInteger()).setScale(5));
-	        $str::stack.push(second.pow(first.intValue()));
+	        stack.push(second.pow(first.intValue()));
 	    })*
 	;
 
@@ -78,12 +77,13 @@ atom
 	        BigDecimal value = new BigDecimal($NUMBER.text.toString());
 	        if ($MINUS.text != null)
 	            value = value.negate();
-            $str::stack.push(value);
+            stack.push(value);
+            //System.out.println(value);
 	    }
 	| MINUS? funcname? LPAREN parens RPAREN
 	    {
             if ($funcname.text != null)
-                $str::stack.push(BigDecimalMath.sqrt($str::stack.pop()));
+                stack.push(BigDecimalMath.sqrt(stack.pop()));
 	    }
 	;
 
