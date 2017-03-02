@@ -474,7 +474,7 @@ public class CalcParser extends Parser {
 				setState(60);
 				((AtomContext)_localctx).NUMBER = match(NUMBER);
 
-					        BigDecimal value = new BigDecimal((((AtomContext)_localctx).NUMBER!=null?((AtomContext)_localctx).NUMBER.getText():null).toString());
+					        BigDecimal value = new BigDecimal((((AtomContext)_localctx).NUMBER!=null?((AtomContext)_localctx).NUMBER.getText():null).toString().replaceAll(" ", ""));
 					        if ((((AtomContext)_localctx).MINUS!=null?((AtomContext)_localctx).MINUS.getText():null) != null)
 					            value = value.negate();
 				            stack.push(value);

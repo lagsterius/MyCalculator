@@ -98,7 +98,7 @@ pow
 atom
 	: MINUS? NUMBER
 	    {
-	        BigDecimal value = new BigDecimal($NUMBER.text.toString());
+	        BigDecimal value = new BigDecimal($NUMBER.text.toString().replaceAll(" ", ""));
 	        if ($MINUS.text != null)
 	            value = value.negate();
             stack.push(value);
@@ -120,7 +120,7 @@ funcname
     ;
 
 NUMBER
-	: DIGIT* DOT? DIGIT+(E DIGIT+)?
+	: (DIGIT WS*)* DOT? (DIGIT WS*)+ (E (DIGIT WS*)+)?
 	;
 
 fragment
