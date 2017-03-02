@@ -1,7 +1,9 @@
 grammar Calc;
 
 @members {
+    BigDecimal first, second;
     Stack<BigDecimal> stack = new Stack<>();
+    String result;
 }
 
 options
@@ -12,62 +14,84 @@ options
 
 @header {
     import java.util.Stack;
-    import org.nevec.rjm.*;
     import java.math.BigDecimal;
     import java.math.RoundingMode;
 }
 
 str
-     	: mult (sign=(PLUS|MINUS) mult
-     	    {
-                 BigDecimal first = stack.pop();
-                 BigDecimal second = stack.pop();
+    : mult (sign=(PLUS|MINUS) mult
+        {
+            first = stack.pop();
+            second = stack.pop();
 
-                 if ($sign.text.toString().equals("+"))
-                     stack.push(second.add(first));
-                 else
-                     stack.push(second.subtract(first));
-             })* NEWLINE?
-             {
-                 System.out.println(" = " + stack.pop());
-             }
-     	;
+            try {
+                if ($sign.text.toString().equals("+"))
+                    stack.push(second.add(first));
+                else
+                    stack.push(second.subtract(first));
+            }
+            catch (Exception e) {
+               stack.push(BigDecimal.ZERO);
+            }
+        })* NEWLINE?
+        {
+            result = stack.pop().toString();
+        }
+    ;
 
 parens
     : mult (sign=(PLUS|MINUS) mult
         {
-            BigDecimal first = stack.pop();
-            BigDecimal second = stack.pop();
+            first = stack.pop();
+            second = stack.pop();
 
-            if ($sign.text.toString().equals("+"))
-                stack.push(second.add(first));
-            else
-                stack.push(second.subtract(first));
+            try {
+                if ($sign.text.toString().equals("+"))
+                    stack.push(second.add(first));
+                else
+                    stack.push(second.subtract(first));
+            }
+            catch (Exception e) {
+               stack.push(BigDecimal.ZERO);
+            }
         })*
     ;
 
 mult
 	: pow (sign=(MULTIPLE|DIVISION|MOD) pow
 	    {
-            BigDecimal first = stack.pop();
-            BigDecimal second = stack.pop();
+            first = stack.pop();
+            second = stack.pop();
 
-            if ($sign.text.toString().equals("*"))
-                stack.push(second.multiply(first));
-            else if ($sign.text.toString().equals("/"))
-                stack.push(second.divide(first, 1, RoundingMode.CEILING));
-            else
-                stack.push(MyBigDecimalMath.mod(second, first));
+            try {
+                if ($sign.text.toString().equals("*"))
+                    stack.push(second.multiply(first));
+                else if ($sign.text.toString().equals("/"))
+                    stack.push(second.divide(first, 1, RoundingMode.CEILING));
+                else
+                    stack.push(MyBigDecimalMath.mod(second, first));
+            }
+            catch (Exception e) {
+               stack.push(BigDecimal.ONE);
+            }
         })*
 	;
 
 pow
 	: atom (POW atom
 	    {
-            BigDecimal first = stack.pop();
-            BigDecimal second = stack.pop();
+            first = stack.pop();
+            second = stack.pop();
 
-	        stack.push(second.pow(first.intValue()));
+	        try {
+	            if (first.intValue() < 1000000 && first.intValue() > -1000000)
+	                stack.push(second.pow(first.intValue()));
+                else
+                    stack.push(second);
+            }
+            catch (Exception e) {
+                stack.push(BigDecimal.ZERO);
+            }
 	    })*
 	;
 
@@ -78,12 +102,16 @@ atom
 	        if ($MINUS.text != null)
 	            value = value.negate();
             stack.push(value);
-            //System.out.println(value);
 	    }
 	| MINUS? funcname? LPAREN parens RPAREN
 	    {
-            if ($funcname.text != null)
-                stack.push(BigDecimalMath.sqrt(stack.pop()));
+            try {
+                if ($funcname.text != null)
+                    stack.push(MyBigDecimalMath.sqrt(stack.pop()));
+            }
+            catch (Exception e) {
+                stack.push(BigDecimal.ONE);
+            }
 	    }
 	;
 

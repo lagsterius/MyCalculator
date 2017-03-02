@@ -1,7 +1,6 @@
 // Generated from C:/MyCalculator/src\Calc.g4 by ANTLR 4.6
 
     import java.util.Stack;
-    import org.nevec.rjm.*;
     import java.math.BigDecimal;
     import java.math.RoundingMode;
 
@@ -75,7 +74,9 @@ public class CalcLexer extends Lexer {
 	}
 
 
+	    BigDecimal first, second;
 	    Stack<BigDecimal> stack = new Stack<>();
+	    String result;
 
 
 	public CalcLexer(CharStream input) {

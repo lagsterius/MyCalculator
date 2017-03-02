@@ -3,6 +3,8 @@ import org.antlr.v4.runtime.CommonTokenStream;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.util.Stack;
 
 class MyParser {
     private ANTLRInputStream input;
@@ -11,9 +13,6 @@ class MyParser {
     private CalcParser parser = new CalcParser(null);
 
     private BufferedReader reader;
-    private String str = "";
-
-
 
     MyParser(BufferedReader reader) {
         this.reader = reader;
@@ -21,11 +20,8 @@ class MyParser {
 
     void readFile() {
         try {
-            while (reader.ready()) {
-                str = reader.readLine();
-                System.out.print(str);
-                newParse(str);
-            }
+            while (reader.ready())
+                newParse(reader.readLine());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -37,5 +33,6 @@ class MyParser {
         tokens = new CommonTokenStream(lexer);
         parser = new CalcParser(tokens);
         parser.str();
+        System.out.println(str + " = " + parser.result);
     }
 }

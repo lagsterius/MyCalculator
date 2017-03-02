@@ -1,7 +1,6 @@
 // Generated from C:/MyCalculator/src\Calc.g4 by ANTLR 4.6
 
     import java.util.Stack;
-    import org.nevec.rjm.*;
     import java.math.BigDecimal;
     import java.math.RoundingMode;
 
@@ -85,7 +84,9 @@ public class CalcParser extends Parser {
 	public ATN getATN() { return _ATN; }
 
 
+	    BigDecimal first, second;
 	    Stack<BigDecimal> stack = new Stack<>();
+	    String result;
 
 	public CalcParser(TokenStream input) {
 		super(input);
@@ -143,14 +144,19 @@ public class CalcParser extends Parser {
 				setState(14);
 				mult();
 
-				                 BigDecimal first = stack.pop();
-				                 BigDecimal second = stack.pop();
+				            first = stack.pop();
+				            second = stack.pop();
 
-				                 if ((((StrContext)_localctx).sign!=null?((StrContext)_localctx).sign.getText():null).toString().equals("+"))
-				                     stack.push(second.add(first));
-				                 else
-				                     stack.push(second.subtract(first));
-				             
+				            try {
+				                if ((((StrContext)_localctx).sign!=null?((StrContext)_localctx).sign.getText():null).toString().equals("+"))
+				                    stack.push(second.add(first));
+				                else
+				                    stack.push(second.subtract(first));
+				            }
+				            catch (Exception e) {
+				               stack.push(BigDecimal.ZERO);
+				            }
+				        
 				}
 				}
 				setState(21);
@@ -168,8 +174,8 @@ public class CalcParser extends Parser {
 			}
 
 
-			                 System.out.println(" = " + stack.pop());
-			             
+			            result = stack.pop().toString();
+			        
 			}
 		}
 		catch (RecognitionException re) {
@@ -234,13 +240,18 @@ public class CalcParser extends Parser {
 				setState(29);
 				mult();
 
-				            BigDecimal first = stack.pop();
-				            BigDecimal second = stack.pop();
+				            first = stack.pop();
+				            second = stack.pop();
 
-				            if ((((ParensContext)_localctx).sign!=null?((ParensContext)_localctx).sign.getText():null).toString().equals("+"))
-				                stack.push(second.add(first));
-				            else
-				                stack.push(second.subtract(first));
+				            try {
+				                if ((((ParensContext)_localctx).sign!=null?((ParensContext)_localctx).sign.getText():null).toString().equals("+"))
+				                    stack.push(second.add(first));
+				                else
+				                    stack.push(second.subtract(first));
+				            }
+				            catch (Exception e) {
+				               stack.push(BigDecimal.ZERO);
+				            }
 				        
 				}
 				}
@@ -316,15 +327,20 @@ public class CalcParser extends Parser {
 				setState(39);
 				pow();
 
-				            BigDecimal first = stack.pop();
-				            BigDecimal second = stack.pop();
+				            first = stack.pop();
+				            second = stack.pop();
 
-				            if ((((MultContext)_localctx).sign!=null?((MultContext)_localctx).sign.getText():null).toString().equals("*"))
-				                stack.push(second.multiply(first));
-				            else if ((((MultContext)_localctx).sign!=null?((MultContext)_localctx).sign.getText():null).toString().equals("/"))
-				                stack.push(second.divide(first, 1, RoundingMode.CEILING));
-				            else
-				                stack.push(MyBigDecimalMath.mod(second, first));
+				            try {
+				                if ((((MultContext)_localctx).sign!=null?((MultContext)_localctx).sign.getText():null).toString().equals("*"))
+				                    stack.push(second.multiply(first));
+				                else if ((((MultContext)_localctx).sign!=null?((MultContext)_localctx).sign.getText():null).toString().equals("/"))
+				                    stack.push(second.divide(first, 1, RoundingMode.CEILING));
+				                else
+				                    stack.push(MyBigDecimalMath.mod(second, first));
+				            }
+				            catch (Exception e) {
+				               stack.push(BigDecimal.ONE);
+				            }
 				        
 				}
 				}
@@ -382,10 +398,18 @@ public class CalcParser extends Parser {
 				setState(49);
 				atom();
 
-				            BigDecimal first = stack.pop();
-				            BigDecimal second = stack.pop();
+				            first = stack.pop();
+				            second = stack.pop();
 
-					        stack.push(second.pow(first.intValue()));
+					        try {
+					            if (first.intValue() < 1000000 && first.intValue() > -1000000)
+					                stack.push(second.pow(first.intValue()));
+				                else
+				                    stack.push(second);
+				            }
+				            catch (Exception e) {
+				                stack.push(BigDecimal.ZERO);
+				            }
 					    
 				}
 				}
@@ -454,7 +478,6 @@ public class CalcParser extends Parser {
 					        if ((((AtomContext)_localctx).MINUS!=null?((AtomContext)_localctx).MINUS.getText():null) != null)
 					            value = value.negate();
 				            stack.push(value);
-				            //System.out.println(value);
 					    
 				}
 				break;
@@ -488,8 +511,13 @@ public class CalcParser extends Parser {
 				setState(70);
 				match(RPAREN);
 
-				            if ((((AtomContext)_localctx).funcname!=null?_input.getText(((AtomContext)_localctx).funcname.start,((AtomContext)_localctx).funcname.stop):null) != null)
-				                stack.push(BigDecimalMath.sqrt(stack.pop()));
+				            try {
+				                if ((((AtomContext)_localctx).funcname!=null?_input.getText(((AtomContext)_localctx).funcname.start,((AtomContext)_localctx).funcname.stop):null) != null)
+				                    stack.push(MyBigDecimalMath.sqrt(stack.pop()));
+				            }
+				            catch (Exception e) {
+				                stack.push(BigDecimal.ONE);
+				            }
 					    
 				}
 				break;
