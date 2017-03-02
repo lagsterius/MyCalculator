@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="91f27e64-6bb4-4d75-8398-70d9cdb80f63" name="Default" comment="ZIP added">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/input.zip" afterPath="$PROJECT_DIR$/src/input.zip" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Calc.g4" afterPath="$PROJECT_DIR$/src/Calc.g4" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CalcLexer.java" afterPath="$PROJECT_DIR$/src/CalcLexer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MyParser.java" afterPath="$PROJECT_DIR$/src/MyParser.java" />
-    </list>
+    <list default="true" id="91f27e64-6bb4-4d75-8398-70d9cdb80f63" name="Default" comment="" />
     <list id="ef3f9473-7e5f-4e19-a16a-88bd0f9062f6" name="Rejected commit: Default" comment="Some changes" />
     <list id="9c92cdc2-c5b2-4238-ae12-6defeca6771c" name="Rejected commit: Default (2)" comment="Some changes" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -645,7 +638,14 @@
       <option name="project" value="LOCAL" />
       <updated>1488489107774</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="ZIP added">
+      <created>1488492035983</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1488492035983</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
