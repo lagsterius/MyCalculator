@@ -35,7 +35,7 @@ class MyParser {
                 curByte = zin.read();
                 if (curByte == -1)
                     return;
-                while (curByte != 10) {
+                while (curByte != 10 && curByte != -1) {
                     curStr.append((char) curByte);
                     curByte = zin.read();
                 }

@@ -129,7 +129,7 @@ DIGIT
 	;
 
 WS
-	: [ \t\r]+ -> skip
+	: [ \t\r\n]+ -> channel(HIDDEN)
 	;
 
 NEWLINE
