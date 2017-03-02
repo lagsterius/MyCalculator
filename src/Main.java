@@ -1,16 +1,19 @@
 import java.io.*;
+import java.util.Date;
+import java.util.zip.ZipOutputStream;
 
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        BufferedReader reader = new BufferedReader(
-            new FileReader(
-                //new FormulaGenerator().genFile("src\\input.txt")));
-                "src\\input.txt"));
+        //Long curTime= new Date().getTime();
 
-        MyParser myParser = new MyParser(reader);
+        ZipOutputStream zout = new FormulaGenerator().genFile("src\\input.zip");
+
+        //System.out.println(new Date().getTime() - curTime);
+
+        MyParser myParser = new MyParser("src\\input.zip");
         myParser.readFile();
 
-        reader.close();
+        //reader.close();
     }
 }

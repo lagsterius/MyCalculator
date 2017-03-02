@@ -2,9 +2,13 @@ import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Stack;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
+import java.util.zip.ZipOutputStream;
 
 class MyParser {
     private ANTLRInputStream input;
@@ -12,16 +16,34 @@ class MyParser {
     private CommonTokenStream tokens;
     private CalcParser parser = new CalcParser(null);
 
-    private BufferedReader reader;
+    private String path;
 
-    MyParser(BufferedReader reader) {
-        this.reader = reader;
+    private int curByte;
+
+    private StringBuilder curStr = new StringBuilder();
+
+    MyParser(String path) {
+        this.path = path;
     }
 
     void readFile() {
-        try {
-            while (reader.ready())
-                newParse(reader.readLine());
+        try(ZipInputStream zin = new ZipInputStream(new FileInputStream(path))) {
+            zin.getNextEntry();
+
+            while (zin.available() > 0) {
+                curStr = new StringBuilder();
+                curByte = zin.read();
+                if (curByte == -1)
+                    return;
+                while (curByte != 10) {
+                    curStr.append((char) curByte);
+                    curByte = zin.read();
+                }
+                newParse(curStr.toString());
+            }
+
+            zin.closeEntry();
+            zin.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

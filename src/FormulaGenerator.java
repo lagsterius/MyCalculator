@@ -1,5 +1,7 @@
 import java.io.*;
 import java.util.Random;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 
 class FormulaGenerator {
     private int curSign = 0;
@@ -9,40 +11,42 @@ class FormulaGenerator {
 
     private long[] rndAr = new long[15000];
 
-    File genFile(String path) {
-        BufferedWriter bw;
-
+    ZipOutputStream genFile(String path) {
         genRndAr();
 
         try {
-            bw = new BufferedWriter(new FileWriter(path));
-            for (int i = 0; i < 100; i++) {
-                bw.write(genFormula());
-                bw.write(genFormula());
-                bw.write(genFormula());
-                bw.write(genFormula());
-                bw.write(genFormula());
-                bw.write(genFormula());
-                bw.write(genFormula());
-                bw.write(genFormula());
-                bw.write(genFormula());
-                bw.write(genFormula());
-                bw.write(genFormula());
-                bw.write(genFormula());
-                bw.write(genFormula());
-                bw.write(genFormula());
-                bw.write(genFormula());
-                bw.write(genFormula());
-                bw.write(genFormula());
-                bw.write(genFormula());
-                bw.write(genFormula());
-                bw.write(genFormula());
+            ZipOutputStream zout = new ZipOutputStream(new FileOutputStream(path));
+            ZipEntry zipEntry = new ZipEntry("data.txt");
+            zout.putNextEntry(zipEntry);
+            for (int i = 0; i < 50000000; i++) {
+                zout.write(genFormula().getBytes());
+                zout.write(genFormula().getBytes());
+                zout.write(genFormula().getBytes());
+                zout.write(genFormula().getBytes());
+                zout.write(genFormula().getBytes());
+                zout.write(genFormula().getBytes());
+                zout.write(genFormula().getBytes());
+                zout.write(genFormula().getBytes());
+                zout.write(genFormula().getBytes());
+                zout.write(genFormula().getBytes());
+                zout.write(genFormula().getBytes());
+                zout.write(genFormula().getBytes());
+                zout.write(genFormula().getBytes());
+                zout.write(genFormula().getBytes());
+                zout.write(genFormula().getBytes());
+                zout.write(genFormula().getBytes());
+                zout.write(genFormula().getBytes());
+                zout.write(genFormula().getBytes());
+                zout.write(genFormula().getBytes());
+                zout.write(genFormula().getBytes());
             }
-            bw.close();
+            zout.closeEntry();
+            zout.close();
+            return zout;
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return new File(path);
+        return new ZipOutputStream(null);
     }
 
     private void genRndAr() {
