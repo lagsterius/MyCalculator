@@ -18,7 +18,7 @@ class FormulaGenerator {
             ZipOutputStream zout = new ZipOutputStream(new FileOutputStream(path));
             ZipEntry zipEntry = new ZipEntry("data.txt");
             zout.putNextEntry(zipEntry);
-            for (int i = 0; i < 50000000; i++) {
+            for (int i = 0; i < 1; i++) {
                 zout.write(genFormula().getBytes());
                 zout.write(genFormula().getBytes());
                 zout.write(genFormula().getBytes());

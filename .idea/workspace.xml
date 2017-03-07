@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="91f27e64-6bb4-4d75-8398-70d9cdb80f63" name="Default" comment="WhiteSpaces fixed">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/antlr_4_6_complete.xml" afterPath="$PROJECT_DIR$/.idea/libraries/antlr_4_6_complete.xml" />
+    <list default="true" id="91f27e64-6bb4-4d75-8398-70d9cdb80f63" name="Default" comment="ANTLR4 lib added">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/libs/antlr-4.6-complete.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/input.zip" afterPath="$PROJECT_DIR$/src/input.zip" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MyParser.java" afterPath="$PROJECT_DIR$/src/MyParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Calc.g4" afterPath="$PROJECT_DIR$/src/Calc.g4" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CalcListener.java" afterPath="$PROJECT_DIR$/src/CalcListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CalcParser.java" afterPath="$PROJECT_DIR$/src/CalcParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FormulaGenerator.java" afterPath="$PROJECT_DIR$/src/FormulaGenerator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
     </list>
     <list id="ef3f9473-7e5f-4e19-a16a-88bd0f9062f6" name="Rejected commit: Default" comment="Some changes" />
     <list id="9c92cdc2-c5b2-4238-ae12-6defeca6771c" name="Rejected commit: Default (2)" comment="Some changes" />
@@ -28,74 +33,14 @@
     <favorites_list name="MyCalculator" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MyParser.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/MyParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="11" lean-forward="false" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Calc.g4" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Calc.g4">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1598">
-              <caret line="102" column="12" lean-forward="false" selection-start-line="102" selection-start-column="12" selection-end-line="102" selection-end-column="12" />
-              <folding>
-                <element signature="e#15#121#1" expanded="true" />
-                <element signature="e#155#262#1" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CalcParser.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/CalcParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7820">
-              <caret line="521" column="17" lean-forward="false" selection-start-line="521" selection-start-column="17" selection-end-line="521" selection-end-column="17" />
-              <folding>
-                <marker date="1488493660166" expanded="false" signature="411:480" ph="/all, warnings, unchecked, unused, cast/" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MyBigDecimalMath.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MyBigDecimalMath.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="14" column="48" lean-forward="false" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FormulaGenerator.java" pinned="false" current-in-tab="false">
+    <leaf>
+      <file leaf-file-name="FormulaGenerator.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/FormulaGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="918">
-              <caret line="57" column="21" lean-forward="false" selection-start-line="57" selection-start-column="8" selection-end-line="57" selection-end-column="21" />
+            <state relative-caret-position="122">
+              <caret line="78" column="34" lean-forward="true" selection-start-line="78" selection-start-column="34" selection-end-line="78" selection-end-column="34" />
               <folding>
-                <element signature="e#3242#3243#0" expanded="false" />
-                <element signature="e#3285#3286#0" expanded="false" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -144,7 +89,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/Calculator.g4" />
-        <option value="$PROJECT_DIR$/src/CalcBaseListener.java" />
         <option value="$PROJECT_DIR$/src/MyCalcListener.java" />
         <option value="$PROJECT_DIR$/src/a4.bat" />
         <option value="$PROJECT_DIR$/src/main.java" />
@@ -154,18 +98,20 @@
         <option value="$PROJECT_DIR$/src/CalcParser.java" />
         <option value="$PROJECT_DIR$/src/input.txt" />
         <option value="$PROJECT_DIR$/src/MyBigDecimalMath.java" />
-        <option value="$PROJECT_DIR$/src/FormulaGenerator.java" />
+        <option value="$PROJECT_DIR$/src/MyParser.java" />
+        <option value="$PROJECT_DIR$/src/CalcListener.java" />
+        <option value="$PROJECT_DIR$/src/CalcBaseListener.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/Calc.g4" />
-        <option value="$PROJECT_DIR$/src/MyParser.java" />
+        <option value="$PROJECT_DIR$/src/FormulaGenerator.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-4" />
     <option name="y" value="-4" />
-    <option name="width" value="1288" />
-    <option name="height" value="684" />
+    <option name="width" value="1374" />
+    <option name="height" value="732" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="false" id="Update" />
@@ -186,9 +132,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -235,30 +180,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="libs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MyCalculator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MyCalculator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value=".idea" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -705,7 +633,14 @@
       <option name="project" value="LOCAL" />
       <updated>1488493952038</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="ANTLR4 lib added">
+      <created>1488571905986</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1488571905986</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -718,13 +653,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1288" height="684" extended-state="6" />
-    <editor active="true" />
+    <frame x="-4" y="-4" width="1374" height="732" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.49367088" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Tool Output" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3282313" sideWeight="0.4875" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29874215" sideWeight="0.49375" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -736,8 +672,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35703126" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32993197" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2532943" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="ANTLR Preview" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1234375" sideWeight="0.49100256" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -749,9 +684,9 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32312927" sideWeight="0.49375" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32993197" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -802,7 +737,8 @@
     <MESSAGE value="ZIP added" />
     <MESSAGE value="idea added" />
     <MESSAGE value="WhiteSpaces fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="WhiteSpaces fixed" />
+    <MESSAGE value="ANTLR4 lib added" />
+    <option name="LAST_COMMIT_MESSAGE" value="ANTLR4 lib added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -815,11 +751,9 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/CalculatorParser.java" />
     <entry file="file://$PROJECT_DIR$/src/Calculator.g4" />
     <entry file="file://$PROJECT_DIR$/src/CalcLexer.tokens" />
     <entry file="file://$PROJECT_DIR$/src/CalcBaseListener.class" />
-    <entry file="file://$PROJECT_DIR$/src/CalcBaseListener.java" />
     <entry file="file://$PROJECT_DIR$/src/MyCalcListener.java" />
     <entry file="file://$PROJECT_DIR$/src/a4.bat" />
     <entry file="file://$PROJECT_DIR$/src/CalcParser.class" />
@@ -977,13 +911,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/nevec/rjm/BigDecimalMath.java" />
     <entry file="file://$PROJECT_DIR$/src/src/file/main.java" />
-    <entry file="file://$USER_HOME$/Desktop/FormulaGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="30" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Desktop/FormulaGenerator.java" />
     <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_111/src.zip!/java/math/BigInteger.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
@@ -1003,12 +931,12 @@
         <state relative-caret-position="17">
           <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
           <folding>
-            <marker date="1488493660111" expanded="true" signature="2362:2463" ph="{...}" />
-            <marker date="1488493660111" expanded="true" signature="2512:2533" ph="{...}" />
-            <marker date="1488493660111" expanded="true" signature="2578:2599" ph="{...}" />
-            <marker date="1488493660111" expanded="true" signature="2646:2672" ph="{...}" />
-            <marker date="1488493660111" expanded="true" signature="2717:2738" ph="{...}" />
-            <marker date="1488493660111" expanded="true" signature="2772:2788" ph="{...}" />
+            <marker date="1488885334260" expanded="true" signature="2362:2463" ph="{...}" />
+            <marker date="1488885334260" expanded="true" signature="2512:2533" ph="{...}" />
+            <marker date="1488885334260" expanded="true" signature="2578:2599" ph="{...}" />
+            <marker date="1488885334260" expanded="true" signature="2646:2672" ph="{...}" />
+            <marker date="1488885334260" expanded="true" signature="2717:2738" ph="{...}" />
+            <marker date="1488885334260" expanded="true" signature="2772:2788" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1035,56 +963,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FormulaGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="57" column="21" lean-forward="false" selection-start-line="57" selection-start-column="8" selection-end-line="57" selection-end-column="21" />
-          <folding>
-            <element signature="e#3242#3243#0" expanded="false" />
-            <element signature="e#3285#3286#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MyBigDecimalMath.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="14" column="48" lean-forward="false" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Calc.g4">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1598">
-          <caret line="102" column="12" lean-forward="false" selection-start-line="102" selection-start-column="12" selection-end-line="102" selection-end-column="12" />
-          <folding>
-            <element signature="e#15#121#1" expanded="true" />
-            <element signature="e#155#262#1" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CalcParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7820">
-          <caret line="521" column="17" lean-forward="false" selection-start-line="521" selection-start-column="17" selection-end-line="521" selection-end-column="17" />
-          <folding>
-            <marker date="1488493660166" expanded="false" signature="411:480" ph="/all, warnings, unchecked, unused, cast/" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/JavaLib/antlr-4.6-complete.jar!/org/antlr/v4/runtime/ANTLRInputStream.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
@@ -1092,10 +970,69 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MyParser.java">
+    <entry file="file://$PROJECT_DIR$/src/CalcParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="11" column="11" lean-forward="false" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+          <caret line="578" column="52" lean-forward="false" selection-start-line="578" selection-start-column="52" selection-end-line="578" selection-end-column="52" />
+          <folding>
+            <marker date="1488885334497" expanded="false" signature="411:480" ph="/all, warnings, unchecked, unused, cast/" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CalcListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CalcBaseListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="14" lean-forward="false" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MyParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="22" lean-forward="false" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MyBigDecimalMath.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="14" column="48" lean-forward="false" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Calc.g4">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="90" column="13" lean-forward="true" selection-start-line="90" selection-start-column="13" selection-end-line="90" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FormulaGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="78" column="34" lean-forward="true" selection-start-line="78" selection-start-column="34" selection-end-line="78" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -84,13 +84,13 @@ pow
             second = stack.pop();
 
 	        try {
-	            if (first.intValue() < 1000000 && first.intValue() > -1000000)
+	            if (first.intValue() < 10000000 && first.intValue() > -10000000)
 	                stack.push(second.pow(first.intValue()));
                 else
                     stack.push(second);
             }
             catch (Exception e) {
-                stack.push(BigDecimal.ZERO);
+                stack.push(BigDecimal.ONE);
             }
 	    })*
 	;
