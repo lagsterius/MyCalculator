@@ -11,11 +11,11 @@ class FormulaGenerator {
 
     private long[] rndAr = new long[15000];
 
-    ZipOutputStream genFile(String path) {
+    ZipOutputStream genFile() {
         genRndAr();
 
         try {
-            ZipOutputStream zout = new ZipOutputStream(new FileOutputStream(path));
+            ZipOutputStream zout = new ZipOutputStream(new FileOutputStream("src\\input.zip"));
             ZipEntry zipEntry = new ZipEntry("data.txt");
             zout.putNextEntry(zipEntry);
             for (int i = 0; i < 1; i++) {

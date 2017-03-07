@@ -11,18 +11,12 @@ class MyParser {
     private CommonTokenStream tokens;
     private CalcParser parser = new CalcParser(null);
 
-    private String path;
-
     private int curByte;
 
     private StringBuilder curStr = new StringBuilder();
 
-    MyParser(String path) {
-        this.path = path;
-    }
-
     void readFile() {
-        try(ZipInputStream zin = new ZipInputStream(new FileInputStream(path))) {
+        try(ZipInputStream zin = new ZipInputStream(new FileInputStream("src\\input.zip"))) {
             zin.getNextEntry();
 
             while (zin.available() > 0) {
